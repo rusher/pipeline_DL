@@ -5,7 +5,9 @@ jobs:
     pool:
       vmImage: 'ubuntu-16.04'
     steps:
-    - task: PublishPipelineArtifact@0
-      inputs:
-        artifactName: 'test-pipe'
-        targetPath: '$(Build.ArtifactStagingDirectory)'
+      - script: |
+          cp * $BUILD_ARTIFACTSTAGINGDIRECTORY
+      - task: PublishPipelineArtifact@0
+        inputs:
+          artifactName: 'test-pipe'
+          targetPath: '$(Build.ArtifactStagingDirectory)'
