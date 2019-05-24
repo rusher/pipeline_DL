@@ -1,0 +1,11 @@
+
+jobs:
+  - job: testingDownloadPipelineArtifact
+    displayName: 'testing pipelines'
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - task: PublishPipelineArtifact@0
+      inputs:
+        artifactName: 'test-pipe'
+        targetPath: '$(Build.ArtifactStagingDirectory)'
